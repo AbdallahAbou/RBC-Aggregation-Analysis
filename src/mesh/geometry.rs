@@ -19,3 +19,21 @@ impl Mesh {
         Self { vertices, faces, id }
     }
 }
+
+impl Mesh {
+    /// Signed volume of mesh using divergence theorem.
+    pub fn compute_volume(&self) -> f64 {
+        let mut volume = 0.0;
+
+        for face in &self.faces {
+            let v0 = &self.vertices[face[0]];
+            let v1 = &self.vertices[face[1]];
+            let v2 = &self.vertices[face[2]];
+
+            // Signed volume of tetrahedron formed with origin
+            volume += v0.coords.dot(&v1.coords.cross(&v2.coords));
+        }
+
+        (volume / 6.0).abs()
+    }
+}
