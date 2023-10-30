@@ -37,3 +37,27 @@ impl Mesh {
         (volume / 6.0).abs()
     }
 }
+
+impl Mesh {
+    /// Compute centroid (center of mass assuming uniform density).
+    pub fn compute_centroid(&self) -> Point3<f64> {
+        let mut centroid = Vector3::zeros();
+        let mut total_area = 0.0;
+
+        for face in &self.faces {
+            let v0 = &self.vertices[face[0]];
+            let v1 = &self.vertices[face[1]];
+            let v2 = &self.vertices[face[2]];
+
+            let edge1 = v1 - v0;
+            let edge2 = v2 - v0;
+            let area = edge1.cross(&edge2).norm() / 2.0;
+            
+            let face_centroid = (v0.coords + v1.coords + v2.coords) / 3.0;
+            centroid += face_centroid * area;
+            total_area += area;
+        }
+
+        Point3::from(centroid / total_area)
+    }
+}
