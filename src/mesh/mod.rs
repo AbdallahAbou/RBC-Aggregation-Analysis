@@ -2,3 +2,5 @@
 
 mod geometry;
 pub use geometry::Mesh;
+mod inertia;
+pub use inertia::InertiaProperties;
