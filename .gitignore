@@ -1,0 +1,18 @@
+.DS_Store
+target/
+Cargo.lock
+
+# Data files
+data/*.obj
+data/*.tif
+data/*.tiff
+*.csv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test artifacts
+*.profraw
