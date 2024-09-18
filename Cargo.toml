@@ -5,3 +5,7 @@ edition = "2021"
 
 [dependencies]
 nalgebra = "0.32"
+ndarray = { version = "0.15", features = ["rayon"] }
+rayon = "1.8"
+thiserror = "1.0"
+anyhow = "1.0"
