@@ -7,3 +7,8 @@ pub mod io;
 
 pub use mesh::{Mesh, InertiaProperties};
 pub use io::ObjLoader;
+pub mod analysis;
+
+pub use analysis::{PairCorrelation, VolumeDistribution};
+pub use mesh::MeshFilter;
+pub use io::TiffStack;
