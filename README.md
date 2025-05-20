@@ -20,3 +20,30 @@ cargo build --release
 ```bash
 rbc-analyze --input ./meshes --output ./results --r-max 50.0
 ```
+
+## API Reference
+
+### Mesh
+
+```rust
+use rbc_aggregation::Mesh;
+
+let mesh = ObjLoader::load("cell.obj")?;
+let volume = mesh.compute_volume();
+let centroid = mesh.compute_centroid();
+```
+
+### Analysis
+
+```rust
+use rbc_aggregation::{PairCorrelation, VolumeDistribution};
+
+let mut pcf = PairCorrelation::new(50.0, 100);
+pcf.compute(&centroids, box_volume);
+
+let dist = VolumeDistribution::from_volumes(volumes);
+```
+
+## License
+
+MIT
