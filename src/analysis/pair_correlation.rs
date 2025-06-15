@@ -58,3 +58,18 @@ impl PairCorrelation {
         }
     }
 }
+
+impl PairCorrelation {
+    /// Export g(r) to CSV format.
+    pub fn to_csv(&self) -> String {
+        let mut csv = String::from("r,g_r\n");
+        let dr = self.r_max / self.n_bins as f64;
+        
+        for (k, &gr) in self.values.iter().enumerate() {
+            let r = (k as f64 + 0.5) * dr;
+            csv.push_str(&format!("{:.4},{:.6}\n", r, gr));
+        }
+        
+        csv
+    }
+}
