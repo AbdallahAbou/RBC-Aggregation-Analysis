@@ -56,3 +56,13 @@ impl VolumeDistribution {
         (edges, counts)
     }
 }
+
+impl VolumeDistribution {
+    /// Export statistics to JSON.
+    pub fn to_json(&self) -> String {
+        format!(
+            r#"{{"mean":{:.4},"std_dev":{:.4},"median":{:.4},"min":{:.4},"max":{:.4},"count":{}}}"#,
+            self.mean, self.std_dev, self.median, self.min, self.max, self.volumes.len()
+        )
+    }
+}
