@@ -25,3 +25,7 @@ harness = false
 
 [profile.release]
 lto = true
+authors = ["Abdallah Abouabdallah <abdallah.abouabdallah.bmt@gmail.com>"]
+description = "3D analysis pipeline for red blood cell aggregation from confocal microscopy data"
+license = "MIT"
+keywords = ["biophysics", "microscopy", "mesh-processing", "scientific-computing"]
