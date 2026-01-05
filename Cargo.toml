@@ -18,6 +18,7 @@ clap = { version = "4.4", features = ["derive"] }
 [dev-dependencies]
 criterion = "0.5"
 approx = "0.5"
+rand = "0.8"
 
 [[bench]]
 name = "mesh_processing"

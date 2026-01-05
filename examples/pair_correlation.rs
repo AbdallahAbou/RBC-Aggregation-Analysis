@@ -5,7 +5,7 @@ use rand::Rng;
 
 fn main() {
     let mut rng = rand::thread_rng();
-    let box_size = 100.0;
+    let box_size: f64 = 100.0;
     let n_points = 500;
     
     // Generate random points
